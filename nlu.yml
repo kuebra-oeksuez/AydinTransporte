@@ -1,0 +1,69 @@
+version: "3.1"
+nlu:
+  - intent: greet
+    examples: |
+      - Hallo
+      - Hi
+      - Guten Tag
+      - Hey
+      - Hallo zusammen
+
+  - intent: goodbye
+    examples: |
+      - Tschüss
+      - Auf Wiedersehen
+      - Bis bald
+      - Ich gehe jetzt
+
+  - intent: ask_contact
+    examples: |
+      - Wie kann ich euch kontaktieren?
+      - Habt ihr eine Telefonnummer?
+      - Kann ich euch eine E-Mail schreiben?
+      - Wie erreiche ich euch?
+      - Was ist eure E-Mail-Adresse?
+      - Kann ich anrufen?
+      - Wo finde ich eure Kontaktinformationen?
+
+  - intent: ask_transport
+    examples: |
+      - Welche Transporte bietet ihr an?
+      - Was sind eure Dienstleistungen?
+      - Welche Transportarten gibt es bei euch?
+      - Welche Arten von Transport führt ihr aus?
+      - Welche Services bietet ihr an?
+
+  - intent: ask_moving_details
+    examples: |
+      - Gebt mir mehr Infos zu Umzügen
+      - Was ist in euren Umzugsservices enthalten?
+      - Erzählt mir mehr über eure Umzugsleistungen
+      - Was bietet ihr bei einem Umzug an?
+
+  - intent: ask_about_us
+    examples: |
+      - Wer seid ihr?
+      - Was macht ihr?
+      - Erzählt mir etwas über euch
+      - Wer ist Aydin Transporte?
+
+  - intent: ask_international_transport
+    examples: |
+      - Transportiert ihr auch ins Ausland?
+      - Macht ihr internationale Transporte?
+      - Kann ich mit euch etwas ins Ausland transportieren?
+      - Bietet ihr Transporte ins Ausland an?
+
+  - intent: thank  
+    examples: |
+      - Danke
+      - Vielen Dank
+      - Danke schön
+      - Ich danke dir
+      - Merci
+
+  - intent: fallback 
+    examples: |
+      - asdfghjkl
+      - qwertzuiop
+      - xyz123
