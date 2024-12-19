@@ -1,0 +1,31 @@
+version: "3.1"
+intents:
+  - greet
+  - goodbye
+  - ask_contact
+  - ask_transport
+  - ask_moving_details
+  - ask_about_us
+  - ask_international_transport
+  - thank
+  - fallback
+
+responses:
+  utter_greet:
+    - text: "Hallo! Wie kann ich Ihnen helfen?"
+  utter_goodbye:
+    - text: "Tschüss! Bis zum nächsten Mal!"
+  utter_contact:
+    - text: "Du kannst uns per E-Mail kontaktieren aydintransporte@googlemail.com oder uns anrufen unter: +4917631451747."
+  utter_transport:
+    - text: "Wir bieten verschiedene Transportarten an, z.B. Umzüge und Paketzustellung."
+  utter_moving_details:
+    - text: "Unsere Umzugsservices umfassen das Verpacken, Transportieren und Auspacken deiner Möbel. Wir bieten auch Unterstützung beim Auf- und Abbau von Möbeln."
+  utter_about_us:
+    - text: "Wir sind Aydin Transporte, ein zuverlässiges Transportunternehmen mit langjähriger Erfahrung. Wir kümmern uns um Ihre Umzugs- und Transportbedürfnisse mit höchster Professionalität."
+  utter_international_transport:
+    - text: "Ja, wir bieten auch internationale Transporte an. Kontaktieren Sie uns für weitere Informationen."
+  utter_thank:
+    - text: "Gern geschehen! Kann ich sonst noch helfen?"  
+  utter_default:
+    - text: "Entschuldigung, das habe ich nicht verstanden. Kannst du das bitte anders formulieren?"
