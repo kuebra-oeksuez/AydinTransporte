@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aydin Transporte</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+        
+        h2 {
+            font-family: 'Playfair Display', sans-serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header.transparent {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        header.scrolled {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+        header h1 span {
+            font-size: 2.2em; /* Größere Initialen */
+            color: #800000; /* Weinrot */
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            z-index: 0;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(244, 244, 249, 1) 100%);
+            z-index: 2;
+        }
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        .cta {
+            background-color: #f9f9f9; /* Dezentes Hellgrau */
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd; /* Dünner Rahmen */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dezenter Schatten */
+        }
+        .cta2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            color: #333;
+        }
+        .content h2 {
+            font-family: 'Playfair Display', sans-serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .contact-section {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3, .contact-form h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #800000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .contact-form button:hover {
+            background-color: #b30000;
+        }
+
+        .cta p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #800000; /* Weinrot */
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .cta a:hover {
+            background-color: #b30000; /* Dunkleres Weinrot */
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .service {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .service img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .service h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 15px;
+        }
+        .service p {
+            font-size: 1em;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .fixed-icons {
+            position: fixed;
+            top: 50%; /* Vertikal mittig auf der Seite */
+            right: 20px; /* Abstand vom rechten Rand */
+            transform: translateY(-50%); /* Kompensation der Höhe für perfekte mittige Ausrichtung */
+            display: flex;
+            flex-direction: column; /* Symbole untereinander anordnen */
+            gap: 10px; /* Abstand zwischen den Symbolen */
+            z-index: 9999; /* Sicherstellen, dass die Icons immer oben sind */
+        }
+        .fixed-icons a {
+            background-color: #800000; /* Weinrote Farbe */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 24px; /* Icon-Größe */
+            width: 50px; /* Einheitliche Breite */
+            height: 50px; /* Einheitliche Höhe */
+            border-radius: 50%; /* Runde Form */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .fixed-icons a:hover {
+            background-color: #5d0000;
+        }
+        .fixed-icons a#chatbot-toggle i {
+            font-size: 24px;
+        }
+        .fixed-icons a#chatbot-toggle  {
+            background-color: #800000;
+        }
+        .hidden{
+            display: none;
+        }
+        #chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+        #chatbot-header {
+            background-color: #800000;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        #chatbot-header button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #chatbot-messages {
+            padding: 10px;
+            height: 280px;  /* Fester Bereich für Nachrichten */
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        #chatbot-input-container {
+            display: flex; /* Input und Button nebeneinander */
+            padding: 10px;
+            background-color: #eee;
+            border-top: 1px solid #ccc;
+        }
+        #chatbot-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        #chatbot-send {
+            width: calc(100% - 20px);
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #800000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #chatbot-send:hover {
+            background-color: #a52a2a;;
+        }
+        #chatbot-container.hidden {
+            display: none;
+        }
+
+        /* Chatbot-Icon (Kleine Roboter-Ikone) */
+        #chatbot-toggle i {
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="transparent">
+        <h1><span>A</span>ydin <span>T</span>ransporte</h1>
+        <nav>
+            <a href="#about">Unternehmen</a>
+            <a href="#services">Leistungen & Services</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </header>
+    <div class="fixed-icons">
+        <a href="#top" title="Nach oben">&#8679;</a>
+        <a href="#contact" title="Kontaktbereich">&#9993;</a>
+        <a href="javascript:void(0)" id="chatbot-toggle" title="Chatbot ein- oder ausblenden">
+            <i class="fas fa-robot"></i>
+        </a>
+    </div>
+    <div id="chatbot-container" class="hidden">
+        <div id="chatbot-header">
+            <span>Chatbot</span>
+            <button id="close-chatbot">X</button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <input id="chatbot-input" type="text" placeholder="Geben Sie eine Nachricht ein...">
+        <button id="chatbot-send">Senden</button>
+    </div>
+    <div class="hero">
+        <video autoplay muted loop>
+            <source src="LKW-Video.mp4" type="video/mp4">
+            Ihr Browser unterstützt dieses Video nicht.
+        </video>
+        <h1>Ihr zuverlässiger Partner für Logistik und Transport</h1>
+        <p>Qualität, die bewegt</p>
+    </div>
+    <div class="cta">
+        <h2>Bereit für den nächsten Schritt?</h2>
+        <p>Wir sind Ihr zuverlässiger Partner für Transport und Logistik. Lassen Sie uns über Ihre Anforderungen spreche.!</p>
+        <a href="#contact">Jetzt Kontakt aufnehmen</a>
+    </div>
+    <div class="content">
+        <section id="about" style="background-color: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+            <h2 style="font-size: 2.5em; color: #333; text-align: center; margin-bottom: 20px;">Über uns</h2>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <img src="unternehmen.jpg" alt="Familienunternehmen" style="flex: 1; max-width: 50%; border-radius: 8px;">
+                <div style="flex: 2; color: #666; font-size: 1.1em; line-height: 1.6;">
+                    <p><strong>Aydin Transporte</strong> ist ein familiengeführtes Unternehmen, das seit über 10 Jahren deutschlandweit tätig ist.</p>
+                    <p>Wir bieten zuverlässige Transportlösungen für verschiedenste Anforderungen – von Einzeltransporten bis hin zu umfassenden Logistikdiensten.</p>
+                    <ul style="margin: 0; padding: 0; list-style: none;">
+                        <li style="margin-bottom: 10px;">✔ Fokus auf Qualität und Zuverlässigkeit</li>
+                        <li style="margin-bottom: 10px;">✔ Persönlicher Service, der Vertrauen schafft</li>
+                        <li style="margin-bottom: 10px;">✔ Nachhaltige und effiziente Lösungen</li>
+                    </ul>
+                </div>
+            </div>
+        </section>        
+        <section id="services" class="section">
+            <h2>Unsere Services</h2>
+            <div class="services">
+                <div class="service">
+                    <img src="Einzeltransport.png" alt="Einzeltransporte" style="width: 60px; margin-bottom: 8px;">
+                    <h3>Einzeltransporte</h3>
+                    <p>Flexible Lösungen für kleinere Transporte – pünktlich und zuverlässig.</p>
+                </div>
+                <div class="service">
+                    <img src="Sammelguttransporte.png" alt="Sammelguttransporte" style="width: 60px; margin-bottom: 8px;">
+                    <h3>Sammelguttransporte</h3>
+                    <p>Kosteneffiziente Transporte durch gebündelte Ladungen.</p>
+                </div>
+                <div class="service">
+                    <img src="Komplettladungen.png" alt="Komplettladungen" style="width: 60px; margin-bottom: 8px;">
+                    <h3>Komplettladungen</h3>
+                    <p>Individuelle Transportlösungen für Ihre spezifischen Anforderungen.</p>
+                </div>
+                <div class="service">
+                    <img src="Logistikloesungen.png" alt="Logistiklösungen" style="width: 60px; margin-bottom: 8px;">
+                    <h3>Logistiklösungen</h3>
+                    <p>Ganzheitliche Planung und Umsetzung komplexer Logistikprojekte.</p>
+                </div>
+            </div>
+        </section>        
+        <section id="contact" class="contact-section">
+            <h2>Kontakt</h2>
+            <p>Haben Sie Fragen oder wünschen Sie ein unverbindliches Angebot? Kontaktieren Sie uns gerne!</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Kontaktinformationen</h3>
+                    <p><strong>Telefon:</strong> +49 176 31451747</p>
+                    <p><strong>E-Mail:</strong> aydin.transporte@googlemail.com</p>
+                    <p><strong>Adresse:</strong> Nagelstraße 30, 89073 Ulm</p>
+                </div>
+                <form class="contact-form">
+                    <h3>Schreiben Sie uns</h3>
+                    <label for="name">Ihr Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                    <label for="email">Ihre E-Mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                    <label for="message">Ihre Nachricht:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Ihre Nachricht" required></textarea>
+                    <button type="submit">Absenden</button>
+                </form>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2024 Aydin Transporte. Alle Rechte vorbehalten.</p>
+        </footer>            
+</body>        
+</html>
