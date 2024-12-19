@@ -1,0 +1,46 @@
+version: "3.1"
+stories:
+  - story: greet story
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: ask_contact story
+    steps:
+      - intent: ask_contact
+      - action: utter_contact
+
+  - story: ask_transport story
+    steps:
+      - intent: ask_transport
+      - action: utter_transport
+
+  - story: ask_moving_details story
+    steps:
+      - intent: ask_moving_details
+      - action: utter_moving_details
+
+  - story: ask_about_us story
+    steps:
+      - intent: ask_about_us
+      - action: utter_about_us
+
+  - story: ask_international_transport story
+    steps:
+      - intent: ask_international_transport
+      - action: utter_international_transport
+
+  - story: goodbye story
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: thank story
+    steps:
+      - intent: thank
+      - action: utter_thank
+
+  - story: fallback story
+    steps:
+      - intent: fallback
+      - action: utter_default
